@@ -1,6 +1,32 @@
-body {
-	font-family: Verdana
-	font-color: red;
+h1 {
+	font-family: "Tahoma";
+	color: #5be7a7;
+}
 
+ul {
+	font-family: Arial;
+	font-style: italic;
+}
+
+.left {
+	display: inline-block;
+	width: 10%;
+	height: 400px;
+	background-color: #C8DEE9;
+	margin-bottom: 10px;
+}
+
+.right {
+	display: inline-block;
+	width: 88%;
+	height: 400px;
+	background-color: #F4fdB3;
+	margin-bottom: 10px;
+}
+
+
+footer {
+	clear: both;
+	text-align: center;
 
 }

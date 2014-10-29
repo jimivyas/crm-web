@@ -10,10 +10,24 @@
 
 		</header>
 
-		<%= yield %>
+		<div class="left">
+			<nav>
+			<ul>
+				<li><a href="/contacts">View all contacts</a></li>
+				<li><a href="/contacts/new">Add a contact</a></li>
+				<li><a href="/contacts/modify">Modify a contact</a></li>
+				<li><a href="contacts/delete">Delete a contact</a></li>
+			</ul>
+			</nav>
+		</div>
+
+		<div class="right">
+			<%= yield %>
+		</div>
 
 		<footer>
-			<h5>This website was made by Jimi Vyas. If you enjoy using it, please consider donating to jimipvyas+paypal.com</h5>	
+			<h5>This website was made by Jimi Vyas. If you enjoy using it, please consider donating to jimipvyas+paypal@gmail.com
+			</h5>	
 		</footer>
 	</body>
 </html>
