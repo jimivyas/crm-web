@@ -17,6 +17,7 @@ ul {
 }
 
 .right {
+	vertical-align: top
 	display: inline-block;
 	width: 88%;
 	height: 400px;
