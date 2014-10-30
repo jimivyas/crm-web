@@ -31,13 +31,8 @@ class Rolodex
 	end
 
 
-	def delete_contact(id)
-		id -=1
-		if id < @contacts.length
-			@contacts.delete_at(id)
-		else 
-			puts "That is not a valid contact number. Returning you to the main menu:"
-		end
+	def delete_contact(contact)
+			@contacts.delete(contact)
 	end
 
 

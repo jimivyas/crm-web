@@ -17,6 +17,16 @@ get '/contacts/new' do
 	erb :new_contact
 end
 
+delete "/contacts/:id" do
+	@contact = $rolodex.find(params[:id].to_i)
+	if @contact
+		$rolodex.delete_contact(@contact)
+		redirect to("/contacts")
+	else
+		raise Sinatra::NotFound
+	end
+end
+
 get '/contacts/:id' do
 	@contact = $rolodex.find_contact(params[:id].to_i)
 	if @contact
