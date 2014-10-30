@@ -27,7 +27,6 @@ class Rolodex
 		@contacts.find { |contact|
 			contact.id == id
 		}
-
 	end
 
 
