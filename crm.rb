@@ -2,11 +2,12 @@ require 'sinatra'
 require_relative 'contact'
 require_relative 'rolodex'
 
-@@rolodex = Rolodex.new
+$rolodex = Rolodex.new
 
-@@rolodex.add_contact(Contact.new("Jimi", "Vyas", "jimipvyas@gmail.com", "super duper cool")
+$rolodex.add_contact(Contact.new("Jimi", "Vyas", "jimipvyas@gmail.com", "super duper cool"))
 
 #routes
+
 get '/' do
 	@crm_app_name = "Jimi's CRM"
 	erb :index 
@@ -16,9 +17,14 @@ get '/contacts/new' do
 	erb :new_contact
 end
 
-get '/contacts/0' do
-	@contact = @@rolodex.find(0)
-	erb :show_contact
+get '/contacts/:id' do
+	@contact = $rolodex.find_contact(params[:id].to_i)
+	if @contact
+		erb :show_contact
+	else
+		raise Sinatra::NotFound
+	end
+end
 
 
 get '/contacts' do
