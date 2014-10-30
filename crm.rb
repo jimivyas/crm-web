@@ -2,7 +2,9 @@ require 'sinatra'
 require_relative 'contact'
 require_relative 'rolodex'
 
-$rolodex = Rolodex.new
+@@rolodex = Rolodex.new
+
+@@rolodex.add_contact(Contact.new("Jimi", "Vyas", "jimipvyas@gmail.com", "super duper cool")
 
 #routes
 get '/' do
@@ -13,6 +15,10 @@ end
 get '/contacts/new' do
 	erb :new_contact
 end
+
+get '/contacts/0' do
+	@contact = @@rolodex.find(0)
+	erb :show_contact
 
 
 get '/contacts' do

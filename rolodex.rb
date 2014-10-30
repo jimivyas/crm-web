@@ -23,13 +23,11 @@ class Rolodex
 		end
 	end
 
-	def display_contact(id)
-		id -=1
-		if id < @contacts.length
-			puts "#{id+1} #{@contacts[id].first_name} #{@contacts[id].last_name}, #{@contacts[id].email}: #{contacts[id].note}"
-		else
-			puts "That is not a valid contact number. Returning you to the main menu:"
-		end
+	def find_contact(id)
+		@contacts.find { |contact|
+			contact.id == id
+		}
+
 	end
 
 
