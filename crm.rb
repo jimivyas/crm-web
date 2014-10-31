@@ -23,15 +23,6 @@ end
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
-# turn this line into columns for the tables	attr_accessor :id, :first_name, :last_name, :email, :note
-	
-# 	def initialize(first_name, last_name, email, note)
-# 		@first_name = first_name
-# 		@last_name = last_name
-# 		@email = email
-# 		@note = note
-# 	end
-
 
 get '/' do
 	@crm_app_name = "Jimi's CRM"
@@ -54,7 +45,7 @@ end
 
 
 put '/contacts/:id' do
-	@contact = $rolodex.find_contact(params[:id].to_i)
+	@contact = Contact.get(params[:id].to_i)
 	if @contact
 		@contact.first_name = params[:first_name]
 		@contact.last_name = params[:last_name]
@@ -69,7 +60,7 @@ end
 
 
 delete "/contacts/:id" do
-	@contact = $rolodex.find(params[:id].to_i)
+	@contact = Contact.get(params[:id].to_i)
 	if @contact
 		$rolodex.delete_contact(@contact)
 		redirect to("/contacts")
@@ -80,7 +71,7 @@ end
 
 
 get '/contacts/:id/edit' do
-	@contact = $rolodex.find_contact(params[:id].to_i)
+	@contact = Contact.get(params[:id].to_i)
 	if @contact
 		erb :edit_contact
 	else
