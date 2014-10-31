@@ -24,9 +24,11 @@ ul {
 .right {
 	position: absolute;
 	left: 150px; 
+	right: 200px;
 	/* 10 + 10 + 100 (+20 for good measure)*/
 	top: 100px;
 	height: 70%;
+	width: 80%;
 	margin-bottom: 10px;
 /*	padding: 0px, 10px, 0px, 10px;
 */	background-color: #C8DEE9;
