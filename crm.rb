@@ -89,15 +89,18 @@ get '/contacts/:id/edit' do
 end
 
 
-
 get '/contacts' do
+	@contacts = Contact.all
 	erb :contacts
 end
 
 post '/contacts' do
-	new_contact = Contact.new(params[:first_name], params[:last_name], params[:email], params[:note])
-	$rolodex.add_contact(new_contact)
-	puts params
+	contact = Contact.create(
+		:first_name => params[:first_name],
+		:last_name => params[:last_name],
+		:email => params[:last_name],
+		:note => params[:note]
+		)
 	redirect to('/contacts')
 end
 
