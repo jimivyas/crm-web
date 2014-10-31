@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'data_mapper'
-require_relative 'contact'
 require_relative 'rolodex'
 
 DataMapper.setup(:default, "sqlite3:database.sqlite3")
@@ -10,6 +9,29 @@ $rolodex = Rolodex.new
 
 
 #routes
+
+class Contact
+	include DataMapper::Resource
+#columns
+	property :id, Serial #increments automatically!
+	property :first_name, String
+	property :last_name, String
+	property :email, String
+	property :note, String
+end
+
+DataMapper.finalize
+DataMapper.auto_upgrade!
+
+# turn this line into columns for the tables	attr_accessor :id, :first_name, :last_name, :email, :note
+	
+# 	def initialize(first_name, last_name, email, note)
+# 		@first_name = first_name
+# 		@last_name = last_name
+# 		@email = email
+# 		@note = note
+# 	end
+
 
 get '/' do
 	@crm_app_name = "Jimi's CRM"
